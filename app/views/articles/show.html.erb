@@ -2,6 +2,19 @@
 
 <h2 align = "center"> Title: <%= @article.title %> </h2>
 
+
+<% if @article.user %>
+<div class = "row justify-content-md-center">
+       <p class = "image-user"><%= link_to gravatar_for(@article.user), user_path(@article.user)%> </p>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to @article.user.username, user_path(@article.user) %></h5>
+          <p class="card-text"> <small class = "text-muted">
+            <%= pluralize(@article.user.articles.count, 'article') if @article.user.articles %>
+          </small> </p>
+        </div>
+</div>
+<% end %>
+
 <h4 class = "center"> <strong> Description: </strong></h4>
 <hr>
 <%= simple_format(@article.description) %> </p>

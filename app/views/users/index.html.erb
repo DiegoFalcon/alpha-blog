@@ -1,0 +1,17 @@
+<h1 align = "center"> All bloggers </h1>
+
+<div class = "container">
+  <div align = "center">
+<% @users.each do |user| %>
+<div class = "row justify-content-md-center">
+     <div class="card mb-3" style = "width: 18rem;">
+       <p class = "image-user"><%= link_to gravatar_for(user), user_path(user) %> </p>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to user.username, user_path(user) %></h5>
+          <p class="card-text"><small class = "text-muted"> <%= pluralize(user.articles.count, 'article') if user.articles %> </small></p>
+        </div>
+      </div>
+</div>
+<% end %>
+</div>
+</div>
