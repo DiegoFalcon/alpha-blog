@@ -3,7 +3,15 @@
 
 <h1 align = "center"><%= "Category: " + @category.name %> </h1>
 
+
+<% if logged_in? && current_user.admin? %>
+<div align = "center">
+  <span class = "badge"> <%= link_to "Edit Category", edit_category_path(@category) %> </span>
+</div>
+<% end %>
+
 <div class = "row justify-content-center">
+
   <%= will_paginate @category_articles %>
 </div>
 
