@@ -9,7 +9,11 @@
 <% @categories.each do |category| %>
   <div class="card mb-3" style = "width: 22rem;">
      <h5 class="card-title" align = "center"><%= link_to category.name, category_path(category) %></h5>
+     <div class="card-body">
+      <small> <%= pluralize(category.articles.count, "article") %> </small>
+    </div>
   </div>
+
 <% end %>
 </div>
 </div>
